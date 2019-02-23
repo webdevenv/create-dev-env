@@ -1,6 +1,6 @@
 {
   "name": "create-dev-env",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Cli for starting a new development environment",
   "scripts": {
     "start": "nps",
