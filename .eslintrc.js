@@ -30,7 +30,7 @@ module.exports = {
     <                 EsLint                   >
     <==========================================>
     */
-    'no-console': 1,
+    'no-console': 0,
     'prefer-const': 1,
     'prefer-arrow-callback': 1,
     'no-unused-vars': 0,

@@ -19,6 +19,7 @@
     "dotenv": "^6.2.0",
     "download-git-repo": "^1.1.0",
     "inquirer": "^6.2.2",
+    "node-fetch": "^2.3.0",
     "nodemon": "^1.18.10",
     "nps": "^5.9.3",
     "nps-utils": "^1.7.0"

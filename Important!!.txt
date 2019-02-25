@@ -1,0 +1,3 @@
+#!/usr/bin/env node
+
+Add this line to beginning of prod/app.js
