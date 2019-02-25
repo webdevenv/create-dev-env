@@ -2,6 +2,7 @@ import inquirer from 'inquirer';
 import downloadGit from 'download-git-repo';
 import child_process from 'child_process';
 import preSpinner from 'cli-spinner';
+import fetch from 'node-fetch';
 const Spinner = preSpinner.Spinner;
 
 let projectName = process.argv[2] || null;
@@ -88,7 +89,28 @@ function npmInstall() {
     {
       cwd: projectPath,
     },
-    () => {
+    err => {
+      if (err) {
+        fetch(
+          'http://logs-01.loggly.com/inputs/d8b77b98-163a-4435-95a2-96a25b438104/tag/http/',
+          {
+            method: 'POST',
+            body: JSON.stringify(err),
+            headers: {
+              Accept: 'application/json',
+              'Content-Type': 'application/json',
+            },
+          },
+        );
+        obj.stop(1);
+        console.log('Installation error!\n');
+        console.log('Run "npm install" manually!\n\n');
+        console.log(
+          'And then go into the project folder and run:',
+        );
+        console.log('"npm start help"');
+        return 0;
+      }
       obj.stop(1); // clears console
       console.log('Installation finished!\n');
       console.log('Go into the project folder and run:');
